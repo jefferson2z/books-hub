@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from books.models import Genre
 
-# Create your views here.
+
+def home_page(request):
+    genres = Genre.objects.all()
+    return render(request, "books/genres_list.html", {"genres": genres})
