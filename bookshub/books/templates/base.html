@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}Books Hub{% endblock %}</title>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/books/">Livros</a></li>
+      </ul>
+    </div>
+
+    <div id="content">{% block content %}{% endblock %}</div>
+  </body>
+</html>
