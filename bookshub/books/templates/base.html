@@ -2,16 +2,28 @@
 <html lang="en">
   <head>
     <title>{% block title %}Books Hub{% endblock %}</title>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'books/bootstrap/css/bootstrap.min.css' %}"
+    />
   </head>
 
   <body>
-    <div id="navbar">
-      <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/books/">Livros</a></li>
+    <div id="navbar" class="bg-dark bg-opacity-10 shadow-sm">
+      <ul class="nav justify-content-center">
+        <li class="nav-item"><a class="nav-link link-dark" href="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link link-dark" href="/books/">Livros</a></li>
       </ul>
     </div>
 
     <div id="content">{% block content %}{% endblock %}</div>
+
+    <script src="{% static 'books/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
   </body>
 </html>
