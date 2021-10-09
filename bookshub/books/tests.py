@@ -78,3 +78,9 @@ class GenresListViewTest(TestCase):
     def test_uses_genres_list_template(self):
         response = self.client.get("/")
         self.assertTemplateUsed(response, "books/genres_list.html")
+
+
+class GenreDetailsViewTest(TestCase):
+    def test_uses_genre_details_template(self):
+        response = self.client.get("/genres/1/")
+        self.assertTemplateUsed(response, "books/genre_details.html")
