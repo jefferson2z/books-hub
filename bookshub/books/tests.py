@@ -82,5 +82,13 @@ class GenresListViewTest(TestCase):
 
 class GenreDetailsViewTest(TestCase):
     def test_uses_genre_details_template(self):
-        response = self.client.get("/genres/1/")
+        genre = Genre.objects.create(title="Fantasy")
+        response = self.client.get(f"/genres/{genre.id}/")
         self.assertTemplateUsed(response, "books/genre_details.html")
+
+    def test_display_correct_genre(self):
+        genre = Genre.objects.create(title="Fantasy")
+        response = self.client.get(f"/genres/{genre.id}/")
+
+        self.assertContains(response, "Fantasy")
+        self.assertContains(response, "Genre Fantasy")

@@ -8,4 +8,5 @@ def home_page(request):
 
 
 def genre_details(request, genre_id):
-    return render(request, "books/genre_details.html")
+    genre = Genre.objects.get(pk=genre_id)
+    return render(request, "books/genre_details.html", {"genre": genre})
