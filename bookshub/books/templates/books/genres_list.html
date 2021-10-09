@@ -3,8 +3,14 @@
 {% block title %}Home Page{% endblock%}
 
 {% block content %}
-  <h1>Genres list page</h1>
+  <h1 class='text-center mt-3 mb-5'>Genres</h1>
+  <div class='d-flex justify-content-center'>
     {% for genre in genres %}
-      <div>{{ genre.title }}</div>
+    <a class='card mx-2 shadow rounded text-decoration-none' href='/genres/{{ genre.id }}'>
+        <div class='card-body'>
+        {{ genre.title }}
+        </div>
+      </a>
     {% endfor %}
+  </div>
 {% endblock %}
