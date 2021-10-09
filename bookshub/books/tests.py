@@ -72,3 +72,9 @@ class BookAndGenreModelsTest(TestCase):
 
         saved_book = Book.objects.get(title="Lord of the Rings")
         self.assertEqual(saved_book.authors.all().count(), 1)
+
+
+class GenresListViewTest(TestCase):
+    def test_uses_genres_list_template(self):
+        response = self.client.get("/")
+        self.assertTemplateUsed(response, "books/genres_list.html")
