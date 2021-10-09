@@ -92,3 +92,15 @@ class GenreDetailsViewTest(TestCase):
 
         self.assertContains(response, "Fantasy")
         self.assertContains(response, "Genre Fantasy")
+
+
+class BooksListViewTest(TestCase):
+    def test_uses_books_list_template(self):
+        response = self.client.get("/books/")
+        self.assertTemplateUsed(response, "books/books_list.html")
+
+    def test_displays_existing_book(self):
+        Book.objects.create(title="Les Miserables")
+        response = self.client.get("/books/")
+
+        self.assertContains(response, "Les Miserables")

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Books Page{% endblock%}
+
+{% block content %}
+  <h1 class='text-center mt-3 mb-5'>Books</h1>
+  <div class='d-flex justify-content-center'>
+    {% for book in books %}
+    <a class='card mx-2 shadow rounded text-decoration-none' href='/books/{{ book.id }}/'>
+        <div class='card-body'>
+        {{ book.title }}
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+{% endblock %}
