@@ -15,10 +15,31 @@
   </head>
 
   <body>
-    <div id="navbar" class="bg-dark bg-opacity-10 shadow-sm">
+    <div id="navbar" class="bg-dark bg-opacity-10 shadow-sm py-2">
       <ul class="nav justify-content-center">
-        <li class="nav-item"><a class="nav-link link-dark" href="/">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link link-dark" href="/books/">Livros</a></li>
+        <li class="nav-item">
+          <a class="nav-link link-dark" href="/">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link link-dark" href="/books/">Livros</a>
+        </li>
+
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Add
+          </button>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Genre</a></li>
+            <li><a class="dropdown-item" href="#">Book</a></li>
+          </ul>
+        </div>
       </ul>
     </div>
 
