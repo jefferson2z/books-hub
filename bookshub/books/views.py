@@ -15,3 +15,8 @@ def genre_details(request, genre_id):
 def books_list(request):
     books = Book.objects.all()
     return render(request, "books/books_list.html", {"books": books})
+
+
+def book_details(request, book_id):
+    book = Book.objects.get(pk=book_id)
+    return render(request, "books/book_details.html", {"book": book})
