@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Genre Form{% endblock%}
+
+{% block content %}
+  <h1 class='text-center mt-3 mb-5'>Genre Form</h1>
+    <form method="POST" action="/genres/new/" class='card mx-auto p-4' style="width: max-content">
+      <div class='mb-3'>
+        <label for'title' class='form-label'>Title:*</label>
+        <input name='title' id='title' class='form-control input-lg' placeholder='Genre title' />
+      </div>
+      <button type='submit' class='btn btn-secondary'>Save</button>
+      {% csrf_token %}
+    </form>
+{% endblock %}
