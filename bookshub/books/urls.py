@@ -4,6 +4,8 @@ from books import views
 
 app_name = "books"
 urlpatterns = [
-    path("<int:genre_id>/", views.genre_details, name="genre_details"),
-    path("", views.books_list, name="books_list"),
+    path("genres/<int:genre_id>/", views.genre_details, name="genre_details"),
+    # path("/books/<int:genre_id>/", views.book_details, name="book_details"),
+    path("books/", views.books_list, name="books_list"),
+    path("", views.genres_list),
 ]
