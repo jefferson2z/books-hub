@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.shortcuts import render
 
 from books.models import Genre, Book
-from books.forms import GenreForm
+from books.forms import GenreForm, BookForm
 
 
 def genres_list(request):
@@ -24,7 +24,11 @@ def genre_form(request):
             return HttpResponseRedirect(reverse("books:genres_list"))
     else:
         form = GenreForm()
-    return render(request, "books/genre_form.html", {"form": form})
+    return render(
+        request,
+        "create_form.html",
+        {"title": "Genre", "action": "/genres/new/", "form": form},
+    )
 
 
 def books_list(request):
@@ -35,3 +39,18 @@ def books_list(request):
 def book_details(request, book_id):
     book = Book.objects.get(pk=book_id)
     return render(request, "books/book_details.html", {"book": book})
+
+
+def book_form(request):
+    if request.method == "POST":
+        form = BookForm(request.POST)
+        if form.is_valid():
+            Book.objects.create(**form.cleaned_data)
+            return HttpResponseRedirect(reverse("books:books_list"))
+    else:
+        form = BookForm()
+    return render(
+        request,
+        "create_form.html",
+        {"title": "Book", "action": "/books/new/", "form": form},
+    )
