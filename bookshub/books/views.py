@@ -1,7 +1,9 @@
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import render
+
 from books.models import Genre, Book
+from books.forms import GenreForm
 
 
 def genres_list(request):
@@ -16,10 +18,13 @@ def genre_details(request, genre_id):
 
 def genre_form(request):
     if request.method == "POST":
-        Genre.objects.create(title=request.POST['title'])
-        return HttpResponseRedirect(reverse('books:genres_list'))
+        form = GenreForm(request.POST)
+        if form.is_valid():
+            Genre.objects.create(**form.cleaned_data)
+            return HttpResponseRedirect(reverse("books:genres_list"))
     else:
-        return render(request, "books/genre_form.html")
+        form = GenreForm()
+    return render(request, "books/genre_form.html", {"form": form})
 
 
 def books_list(request):
