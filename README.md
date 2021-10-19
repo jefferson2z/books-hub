@@ -4,7 +4,6 @@ This project supplies the api for the book-reviewer app.
 
 ### TODO:
 - book details page
-- genre details page
 - create user page
 - login page
 - handle login session

@@ -13,7 +13,8 @@ def genres_list(request):
 
 def genre_details(request, genre_id):
     genre = Genre.objects.get(pk=genre_id)
-    return render(request, "books/genre_details.html", {"genre": genre})
+    books = genre.books.all()
+    return render(request, "books/genre_details.html", {"genre": genre, "books": books})
 
 
 def genre_form(request):
