@@ -5,14 +5,14 @@ class Author(models.Model):
     name = models.CharField(max_length=200)
 
     def __str__(self) -> str:
-        return f"{self.name}, ID: {self.id}"
+        return f"{self.name}"
 
 
 class Genre(models.Model):
     title = models.CharField(max_length=200)
 
     def __str__(self) -> str:
-        return f"{self.title}, ID: {self.id}"
+        return f"{self.title}"
 
 
 class Book(models.Model):
