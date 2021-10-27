@@ -22,7 +22,7 @@ def genre_form(request):
         form = GenreForm(request.POST)
         if form.is_valid():
             Genre.objects.create(**form.cleaned_data)
-            return HttpResponseRedirect(reverse("books:genres_list"))
+            return HttpResponseRedirect(reverse("books:genres-list"))
     else:
         form = GenreForm()
     return render(
@@ -46,8 +46,7 @@ def book_form(request):
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
-            Book.objects.create(**form.cleaned_data)
-            return HttpResponseRedirect(reverse("books:books_list"))
+            return HttpResponseRedirect(reverse("books:books-list"))
     else:
         form = BookForm()
     return render(
