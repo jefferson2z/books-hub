@@ -21,7 +21,7 @@ def genre_form(request):
     if request.method == "POST":
         form = GenreForm(request.POST)
         if form.is_valid():
-            Genre.objects.create(**form.cleaned_data)
+            form.save()
             return HttpResponseRedirect(reverse("books:genres-list"))
     else:
         form = GenreForm()
@@ -46,6 +46,7 @@ def book_form(request):
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
+            form.save()
             return HttpResponseRedirect(reverse("books:books-list"))
     else:
         form = BookForm()
