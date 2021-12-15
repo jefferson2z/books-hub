@@ -23,23 +23,17 @@
     <div id="navbar" class="bg-dark bg-opacity-10 shadow-sm py-2">
       <ul class="nav justify-content-center">
         <li class="nav-item">
-          <a 
-            class="nav-link link-dark" 
-            href={% url 'books:genres-list' %}
-          >
+          <a class="nav-link link-dark" href="{% url 'books:genres-list' %}">
             Inicio
           </a>
         </li>
         <li class="nav-item">
-          <a 
-            class="nav-link link-dark" 
-            href={% url 'books:books-list' %}
-          >
+          <a class="nav-link link-dark" href="{% url 'books:books-list' %}">
             Livros
           </a>
         </li>
 
-        <div class="dropdown">
+        <li class="dropdown">
           <button
             class="btn btn-secondary dropdown-toggle"
             type="button"
@@ -52,23 +46,17 @@
 
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li>
-              <a 
-                class="dropdown-item" 
-                href={% url 'books:new-genre-form'  %}
-              >
+              <a class="dropdown-item" href="{% url 'books:new-genre-form'  %}">
                 Genre
               </a>
             </li>
             <li>
-              <a 
-                class="dropdown-item" 
-                href={% url 'books:new-book-form'  %}
-              >
+              <a class="dropdown-item" href="{% url 'books:new-book-form'  %}">
                 Book
               </a>
             </li>
           </ul>
-        </div>
+        </li>
       </ul>
     </div>
 
