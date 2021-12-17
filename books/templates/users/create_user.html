@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Criar Conta{% endblock%}
+
+{% block content %}
+  <h1 class='text-center mt-3 mb-5'>Criar Conta</h1>
+  <form method="POST" action="{{ action }}" class='card mx-auto p-4' style="width: max-content">
+      {{ form.as_p }}
+      <button type='submit' class='btn btn-secondary'>Criar</button>
+      <a class="nav-link link-dark" href="{% url 'users:user-login' %}">
+        Login
+      </a>
+      {% csrf_token %}
+  </form>
+{% endblock %}
