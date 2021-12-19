@@ -3,13 +3,23 @@
 {% block title %}Login{% endblock%}
 
 {% block content %}
+
+  {% if form.errors %}
+    <p>O usuario e senha nao correspondem a um usuario. Por favor tente novamente.</p>
+  {% endif %}
+
+
   <h1 class='text-center mt-3 mb-5'>Login</h1>
   <form method="POST" action="{{ action }}" class='card mx-auto p-4' style="width: max-content">
       {{ form.as_p }}
-      <button type='submit' class='btn btn-secondary'>Salvar</button>
+      <button type='submit' class='btn btn-secondary'>Entrar</button>
+      <input type="hidden" name="next" value="{{ next }}">
       <a class="nav-link link-dark" href="{% url 'users:create-user' %}">
         Criar conta
       </a>
       {% csrf_token %}
   </form>
+
+  {# Assumes you set up the password_reset view in your URLconf #}
+{% comment %} <p><a href="{% url 'password_reset' %}">Lost password?</a></p> {% endcomment %}
 {% endblock %}
